@@ -19,7 +19,7 @@ let urlDb;
 if(urlDb){
     urlDb = 'mongodb://localhost:27017/cafe'
 }else{
-    urlDb = 'mongodb+srv://AlanBM94:ioja7f9uIQ146cnn@cluster0-0zbmm.mongodb.net/cafe';
+    urlDb = process.env.MONGO_URI;
 }
 
 
