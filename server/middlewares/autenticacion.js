@@ -18,7 +18,7 @@ let verificaToken = (req, res, next) => {
         req.usuario = decoded.usuario;
         next();
     });
-}
+};
 
 // ----------Verificar admin role----------
 
@@ -36,8 +36,6 @@ let verificaAdminRole = (req, res, next) => {
             }
         })
     }
-
-
 }
 
 module.exports = {
