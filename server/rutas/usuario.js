@@ -36,7 +36,7 @@ app.get('/usuario', verificaToken, (req, res) => {
 });
 
 // Crear nuevos registros
-app.post('/usuario', (req, res) => {
+app.post('/usuario', [verificaToken, verificaAdminRole], (req, res) => {
 
     let body = req.body;
     
