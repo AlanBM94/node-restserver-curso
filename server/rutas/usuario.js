@@ -3,10 +3,13 @@ const _ = require('underscore');
 const bcrypt = require('bcrypt');
 const app = express();
 const Usuario = require('../modelos/usuario');
+const {verificaToken, verificaAdminRole} = require('../middlewares/autenticacion');
 
 
-// Obtener registros
-app.get('/usuario', (req, res) => {
+// Obtener registros 
+// --verificaToken es el middleware
+app.get('/usuario', verificaToken, (req, res) => {
+
     let desde = req.query.desde || 0;
     desde = Number(desde);
     let limite = req.query.limite || 5;
@@ -33,7 +36,7 @@ app.get('/usuario', (req, res) => {
 });
 
 // Crear nuevos registros
-app.post('/usuario', (req, res) => {
+app.post('/usuario', [verificaToken, verificaAdminRole], (req, res) => {
 
     let body = req.body;
     
@@ -65,7 +68,7 @@ app.post('/usuario', (req, res) => {
 });
 
 // Actualizar registros
-app.put('/usuario/:id', (req, res) => {
+app.put('/usuario/:id', [verificaToken, verificaAdminRole], (req, res) => {
     let id = req.params.id;
     // Estos son los campos que va a aceptar
     let body = _.pick(req.body, ['nombre', 'correo', 'imagen', 'role', 'estado']);
@@ -85,7 +88,7 @@ app.put('/usuario/:id', (req, res) => {
 
 
 // Cambia el estado de registro para que no esté disponible
-app.delete('/usuario/:id', (req, res) => {
+app.delete('/usuario/:id', [verificaToken, verificaAdminRole], (req, res) => {
     let id = req.params.id;
     let cambiaEstado = {
         estado: false

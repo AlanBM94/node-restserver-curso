@@ -10,14 +10,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-// Referencia al usuario.js
+// Configuración global de rutas
+app.use(require('./rutas/index'));
 
-app.use(require('./rutas/usuario.js'));
 // Conexión a mongoose
 
 // Conecta la base de datos con mongoose
 mongoose.connect(process.env.URLDB, {useNewUrlParser: true, useCreateIndex: true}, (err, res) => {
-    if(err) throw error;
+    if(err) throw err;
     console.log('Base de datos online');
 });
 
