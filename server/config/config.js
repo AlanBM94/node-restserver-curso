@@ -27,11 +27,10 @@ let urlDb;
 if(process.env.NODE_ENV === 'dev'){
     urlDb = 'mongodb://localhost:27017/cafe'
 }else{
-    urlDb = process.env.MONGO_URII;
+    urlDb = ' mongodb+srv://AlanBM94:BmXB2blz1mAUrPFq@cluster0-0zbmm.mongodb.net/cafe';
 }
-
-
 process.env.URLDB = urlDb;
+
 
 // ---------------------------
 // -----GOOGLE CLIENT ID------

@@ -4,7 +4,7 @@ const {verificaToken} = require('../middlewares/autenticacion');
 
 let app = express();
 
-let Producto = require('../modelos/producto');
+let Producto = require('../models/producto');
 
 //---------Buscar productos-----------
 app.get('/producto/buscar/:termino', verificaToken, (req, res) => {

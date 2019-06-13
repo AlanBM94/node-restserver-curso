@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 let {verificaToken, verificaAdminRole} = require('../middlewares/autenticacion');
-const Categoria = require('../modelos/categoria');
+const Categoria = require('../models/categoria');
 
 
 // Muestra todas las categorías

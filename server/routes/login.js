@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const {OAuth2Client} = require('google-auth-library');
 const client = new OAuth2Client(process.env.CLIENT_ID);
-const Usuario = require('../modelos/usuario');
+const Usuario = require('../models/usuario');
 const app = express();
 
 app.post('/login', (req, res) => {

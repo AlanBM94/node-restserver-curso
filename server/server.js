@@ -15,8 +15,8 @@ app.use(express.static(path.resolve(__dirname, '../public')));
 
 console.log(path.resolve(__dirname, '../public'));
 
-// Configuración global de rutas
-app.use(require('./rutas/index'));
+// Configuración global de routes
+app.use(require('./routes/index'));
 
 // Conexión a mongoose
 
